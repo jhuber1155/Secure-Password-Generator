@@ -97,15 +97,14 @@ function writePassword() {
     var shuffledArray = shuffle(totalChar);
 
     for (var i = 0; i < userChoice; i++){
-      var index = Math.floor(Math.random() * totalChar.length-1);
+      var index = Math.floor(Math.random() * totalChar.length);
       password = totalChar[index];
-      
+      console.log(password);
     };
     return;
   };
-    generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
     var password = generatePassword();
+    passwordText.value = password;
+    var passwordText = document.querySelector("#password");
     };
 writePassword();
