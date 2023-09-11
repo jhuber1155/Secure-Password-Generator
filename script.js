@@ -5,7 +5,9 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var specialChar = ["\u0020", "\u0022", "\u0023", "\u0024", "\u0025", "\u0026", "\u0027", "\u0028","\u0029", "\u002A","\u002B", "\u002C", "\u002D", "\u002E", "\u002F", "\u003A", "\u003B", "\u003C", "\u003D", "\u003E", "\u003F", "\u0040", "\u005B", "\u005C", "\u005D", "\u005E", "\u005F", "\u0060", "\u007B", "\u007C", "\u007D", "\u007E"];
 
 var generateBtn = document.querySelector("#generate");
-  
+var passwordText = document.querySelector("#password");
+
+var password = "";
 generateBtn.addEventListener('click', function() { writePassword()
 });
 // Write password to the #password input
@@ -29,57 +31,22 @@ function writePassword() {
   var stringOfLower = window.confirm("Would you like to include lowercase letters in your password?");
   var stringOfUpper = window.confirm("Would you like to include uppercase letters in your password?");
   var stringOfSpecial = window.confirm("Would you like to include special characters in your password?");
-          
-  if(stringOfNum && !stringOfLower && !stringOfUpper && !stringOfSpecial){
-    var totalChar = (numeric);
-    console.log(totalChar);
-  }else if(stringOfNum && stringOfLower && !stringOfUpper && !stringOfSpecial){
-    var totalChar = (numeric.concat(lowerCase));
-    console.log(totalChar);
-  }else if(stringOfNum && stringOfLower && stringOfUpper && !stringOfSpecial){
-    var totalChar = (numeric.concat(lowerCase, upperCase));
-    console.log(totalChar);
-  }else if(stringOfNum && stringOfLower && stringOfUpper && stringOfSpecial){
-    var totalChar = (numeric.concat(lowerCase, upperCase, specialChar));
-    console.log(totalChar);
-  }else if(!stringOfNum && stringOfLower && !stringOfUpper && !stringOfSpecial){
-    var totalChar = (lowerCase);
-    console.log(totalChar);
-  }else if(!stringOfNum && stringOfLower && stringOfUpper && !stringOfSpecial){
-    var totalChar = (lowerCase.concat(upperCase));
-    console.log(totalChar);
-  }else if(!stringOfNum && stringOfLower && stringOfUpper && stringOfSpecial){
-    var totalChar = (lowerCase.concat(upperCase, specialChar));
-    console.log(totalChar);
-  }else if(!stringOfNum && stringOfLower && !stringOfUpper && stringOfSpecial){
-    var totalChar = (lowerCase.concat(specialChar));
-    console.log(totalChar);
-  }else if(!stringOfNum && !stringOfLower && stringOfUpper && !stringOfSpecial){
-    var totalChar = (upperCase);
-    console.log(totalChar);
-  }else if(stringOfNum && !stringOfLower && stringOfUpper && !stringOfSpecial){
-    var totalChar = (numeric.concat(upperCase));
-    console.log(totalChar);
-  }else if(!stringOfNum && stringOfLower && stringOfUpper && stringOfSpecial){
-    var totalChar = (lowerCase.concat(upperCase, specialChar));
-    console.log(totalChar);
-  }else if(stringOfNum && !stringOfLower && stringOfUpper && stringOfSpecial){
-    var totalChar = (numeric.concat(upperCase, specialChar));
-    console.log(totalChar);
-  }else if(!stringOfNum && !stringOfLower && !stringOfUpper && stringOfSpecial){
-    var totalChar = (specialChar);
-    console.log(totalChar);
-  }else if(stringOfNum && !stringOfLower && !stringOfUpper && stringOfSpecial){
-    var totalChar = (numeric.concat(specialChar));
-    console.log(totalChar);
-  }else if(stringOfNum && stringOfLower && !stringOfUpper && stringOfSpecial){
-    var totalChar = (numeric.concat(lowerCase, specialChar));
-    console.log(totalChar);
-  }else if(stringOfNum && !stringOfLower && stringOfUpper && stringOfSpecial){
-    var totalChar = (numeric.concat(upperCase, specialChar));
-    console.log(totalChar);
-  };
-            
+
+  totalChar = [];
+    if(stringOfNum) {
+      totalChar = totalChar.concat(numeric);
+    };
+    if(stringOfLower){
+      totalChar = totalChar.concat(lowerCase);
+    };
+    if(stringOfUpper){
+      totalChar = totalChar.concat(upperCase);
+    };
+    if(stringOfSpecial){
+      totalChar = totalChar.concat(specialChar)
+    }
+
+  console.log(totalChar);
   if(!stringOfNum && !stringOfLower && !stringOfUpper && !stringOfSpecial){
     window.alert("You must choose at least one parameter to make your password with");
     return;
@@ -98,13 +65,13 @@ function writePassword() {
 
     for (var i = 0; i < userChoice; i++){
       var index = Math.floor(Math.random() * totalChar.length);
-      password = totalChar[index];
+      password = password + totalChar[index];
       console.log(password);
     };
-    return;
+    return password;
   };
-    var password = generatePassword();
-    passwordText.value = password;
-    var passwordText = document.querySelector("#password");
+    var finalpassword = generatePassword();
+    passwordText.value = finalpassword;
+   
     };
 writePassword();
