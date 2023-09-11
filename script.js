@@ -85,6 +85,8 @@ function writePassword() {
     return;
   };
   function generatePassword(){
+
+    singleChara="";
     
     var shuffle = function(){
       for (var i = totalChar.length-1; i > 0; i--){
@@ -98,7 +100,8 @@ function writePassword() {
 
     for (var i = 0; i < userChoice; i++){
       var index = Math.floor(Math.random() * totalChar.length-1);
-      password = totalChar[index];
+      singleChara = totalChar[index];
+
     };
     return;
   };
