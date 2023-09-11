@@ -85,28 +85,26 @@ function writePassword() {
     return;
   };
   function generatePassword(){
-
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-    var password = "";
     
     var shuffle = function(){
       for (var i = totalChar.length-1; i > 0; i--){
       var j = Math.floor(Math.random() * (i + 1));
       ([[totalChar[i]], [totalChar[j]]] = [totalChar[j], totalChar[i]]);
       };
-      console.log(shuffle);
       return;
     };
+
     var shuffledArray = shuffle(totalChar);
-    console.log(shuffledArray);
+
     for (var i = 0; i < userChoice; i++){
       var index = Math.floor(Math.random() * totalChar.length-1);
       password = totalChar[index];
     };
+    return;
   };
     generatePassword();
-    console.log(generatePassword());
-    console.log(password);
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+    var password = generatePassword();
     };
 writePassword();
