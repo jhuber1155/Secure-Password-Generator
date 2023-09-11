@@ -5,8 +5,7 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var specialChar = ["\u0020", "\u0022", "\u0023", "\u0024", "\u0025", "\u0026", "\u0027", "\u0028","\u0029", "\u002A","\u002B", "\u002C", "\u002D", "\u002E", "\u002F", "\u003A", "\u003B", "\u003C", "\u003D", "\u003E", "\u003F", "\u0040", "\u005B", "\u005C", "\u005D", "\u005E", "\u005F", "\u0060", "\u007B", "\u007C", "\u007D", "\u007E"];
 
 var generateBtn = document.querySelector("#generate");
-var passwordText = document.querySelector("#password");  
-
+  
 generateBtn.addEventListener('click', function() { writePassword()
 });
 // Write password to the #password input
@@ -25,7 +24,7 @@ function writePassword() {
     if(!intendedNum){
     return;
     };
-// This code creates a series of confirmation windows asking whether or not you would like to include the follow possibilities when creating your password in order: SVGAnimatedNumberList, lowercase letters, uppercase letters, and special characters. It would then take your preferences and concat them into a large array containing your preferences. If you chose none, it would prompt you to choose at least one in order to make a password.
+// This code creates a series of confirmation windows asking whether or not you would like to include the follow possibilities when creating your password in order: asking if you want number, lowercase letters, uppercase letters, and special characters. It would then take your preferences and concat them into a large array containing your preferences. If you chose none, it would prompt you to choose at least one in order to make a password.
   var stringOfNum = window.confirm("Would you like to include numbers in your password?"); 
   var stringOfLower = window.confirm("Would you like to include lowercase letters in your password?");
   var stringOfUpper = window.confirm("Would you like to include uppercase letters in your password?");
@@ -86,25 +85,28 @@ function writePassword() {
     return;
   };
   function generatePassword(){
-    var shuffle = function(){
-        for (var i = totalChar.length-1; i > 0; i--){
-        var j = Math.floor(Math.random() * (i + 1));
-        ([[i], [j]] = [[j], [i]]);
-        }
-        return;
-    };
-        var shuffledArray = shuffle(totalChar);
-        console.log(shuffledArray);
 
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+    var password = "";
+    
+    var shuffle = function(){
+      for (var i = totalChar.length-1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      ([[totalChar[i]], [totalChar[j]]] = [totalChar[j], totalChar[i]]);
+      };
+      console.log(shuffle);
+      return;
     };
-    var ranSlice = function(){
+    var shuffledArray = shuffle(totalChar);
+    console.log(shuffledArray);
     for (var i = 0; i < userChoice; i++){
-        console.log(totalChar.slice((Math.floor(Math.random() * totalChar.length))));
-        };
-        return;
+      var index = Math.floor(Math.random() * totalChar.length-1);
+      password = totalChar[index];
     };
-    var password = generatePassword();
+  };
+    generatePassword();
+    console.log(generatePassword());
     console.log(password);
     };
-};
 writePassword();
