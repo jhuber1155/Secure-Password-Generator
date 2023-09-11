@@ -85,5 +85,26 @@ function writePassword() {
     window.alert("You must choose at least one parameter to make your password with");
     return;
   };
+  function generatePassword(){
+    var shuffle = function(){
+        for (var i = totalChar.length-1; i > 0; i--){
+        var j = Math.floor(Math.random() * (i + 1));
+        ([[i], [j]] = [[j], [i]]);
+        }
+        return;
+    };
+        var shuffledArray = shuffle(totalChar);
+        console.log(shuffledArray);
+
+    };
+    var ranSlice = function(){
+    for (var i = 0; i < userChoice; i++){
+        console.log(totalChar.slice((Math.floor(Math.random() * totalChar.length))));
+        };
+        return;
+    };
+    var password = generatePassword();
+    console.log(password);
+    };
 };
 writePassword();
