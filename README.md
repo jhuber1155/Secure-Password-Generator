@@ -15,11 +15,11 @@ Another thing I discovered was that I needed to create an empty string to hold t
 In order to use this Password Generator, you must first download the code from github pages.
 
 [Github Pages](www.github.com)
-![Github Pages](assets/GithubPages.png)
+![Github Pages](./Assets/GithubPages.png)
 
 Click on the green code button and then copy with HTTPS or SSH key
 
-![Github Code](assets/GithubCode.png)
+![Github Code](./Assets/GithubCode.png)
 
 Clone the repository onto your computer using Git Bash or its equivalent.
 
@@ -29,13 +29,13 @@ From there, select the index.html and open with the Live Server extension or its
 
 You should be greeted with the following image:
 
-![Blank Password](assets/03-javascript-homework-demo.png)
+![Blank Password](./Assets/03-javascript-homework-demo.png)
 
 Click on the red Generate Password button.
 
 After entering the parameters (how many characters you want the length to be, if you want numbers, lower case letters, upper case letters, or special characters), the program will output a user chosen length of randomly selected characters from a randomized array.
 
-![Generated Password](assets/Screenshot%20(15).png).
+![Generated Password](./Assets/Screenshot%20(15).png).
 
 Click the button again and again to generate new and different passwords as needed!
 
